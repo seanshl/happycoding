@@ -9,8 +9,19 @@ public class App {
 		ApplicationContext context = new ClassPathXmlApplicationContext("/com/shiyaoeating/spring/test/beans/beans.xml");
 		
 		//Person person = new Person();
-		Person person = (Person)context.getBean("person");
-		person.speak();
+		Person person1 = (Person)context.getBean("person");
+		person1.speak();
+		
+		Person person2 = (Person)context.getBean("person");
+        person2.speak();
+		
+        person1.setTaxId(666);
+        
+		Address address = (Address) context.getBean("address");
+		
+		
+		System.out.println(person1);
+		System.out.println(person2);
 		((ClassPathXmlApplicationContext) context).close();
 	}
 

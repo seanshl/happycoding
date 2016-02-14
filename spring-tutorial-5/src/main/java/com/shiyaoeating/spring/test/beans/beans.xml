@@ -5,7 +5,17 @@
 
 
 
-	<bean id="person" 
-		class="com.shiyaoeating.spring.test.Person">
+	<bean id="person" class="com.shiyaoeating.spring.test.Person"
+		scope="prototype" init-method="onCreate" destroy-method="onDestroy">
+		<constructor-arg value="777" name="id"></constructor-arg>
+		<constructor-arg value="Mary" name="name"></constructor-arg>
+		<property name="taxId" value="123"></property>
+		<property name="address" ref="address"></property>
+	</bean>
+
+
+	<bean id="address" class="com.shiyaoeating.spring.test.Address">
+		<constructor-arg name="street" value="5920 Pershing Ave"></constructor-arg>
+		<constructor-arg name="postcode" value="3522"></constructor-arg>
 	</bean>
 </beans>
