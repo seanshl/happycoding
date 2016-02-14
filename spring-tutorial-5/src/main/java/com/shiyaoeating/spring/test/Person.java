@@ -19,13 +19,18 @@ public class Person {
 		this.name = name;
 	}
 
+	public static Person getInstance(int id, String name) {
+	    System.out.println("Creating Person using factory method.");
+	    return new Person(id, name);
+	}
+	
 	@Override
     public String toString() {
         return "Person [id=" + id + ", name=" + name + ", taxId=" + taxId + ", address=" + address + "]";
     }
 
 	public void speak() {
-		System.out.println("Hello! I'm a a person!");
+		System.out.println("Hello! I'm a person!");
 	}
 	
 	public void onCreate() {
