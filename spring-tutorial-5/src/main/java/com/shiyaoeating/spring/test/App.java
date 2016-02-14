@@ -22,6 +22,7 @@ public class App {
 		
 		Address address = (Address) context.getBean("address");
 		
+		Address address2 = (Address) context.getBean("address2");
 		
 //		System.out.println(person1);
 //		System.out.println(person2);
