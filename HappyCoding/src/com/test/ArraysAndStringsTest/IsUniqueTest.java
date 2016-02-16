@@ -1,4 +1,4 @@
-package com.Algorithms.ArraysAndStringsTest;
+package com.test.ArraysAndStringsTest;
 
 import static org.junit.Assert.*;
 
