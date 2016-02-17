@@ -7,16 +7,16 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd">
 
 
-	<bean id="logger" class="com.shiyaoeating.spring.test.Logger"
+	<bean id="logger" class="com.shiyaoeating.spring.autowiring.Logger"
 		autowire="byType">
 	</bean>
 
 
 	<bean id="consolewriter"
-		class="com.shiyaoeating.spring.test.ConsoleWriter">
+		class="com.shiyaoeating.spring.autowiring.ConsoleWriter">
 	</bean>
 	<bean id="filewriter"
-		class="com.shiyaoeating.spring.test.FileWriter">
+		class="com.shiyaoeating.spring.autowiring.FileWriter">
 	</bean>
 	<context:annotation-config></context:annotation-config>
 </beans>

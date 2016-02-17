@@ -1,4 +1,4 @@
-package com.shiyaoeating.spring.test;
+package com.shiyaoeating.spring.autowiring;
 
 public class ConsoleWriter implements LogWriter {
 

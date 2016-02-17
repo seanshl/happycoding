@@ -1,10 +1,9 @@
-package com.shiyaoeating.spring.test;
+package com.shiyaoeating.spring.autowiring;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.context.support.FileSystemXmlApplicationContext;
 
-public class App {
+public class App2 {
 
     public static void main(String[] args) {
         
