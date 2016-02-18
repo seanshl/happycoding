@@ -3,7 +3,7 @@ package com.shiyaoeating.spring.autowiring;
 import org.springframework.beans.factory.annotation.Autowired;
 
 public class Logger {
-    @Autowired
+    @Autowired(required=false)
     private ConsoleWriter consoleWriter;
     
     @Autowired
