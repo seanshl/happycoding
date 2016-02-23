@@ -11,7 +11,7 @@ public class StringUtil {
      * @return
      * @throws InvalidInputException
      */
-    public int toDecimalInteger(String s) throws InvalidInputException{
+    public static int toDecimalInteger(String s) throws InvalidInputException{
         if (s.isEmpty()) {
             throw new InvalidInputException("your input is invalid");
         }
