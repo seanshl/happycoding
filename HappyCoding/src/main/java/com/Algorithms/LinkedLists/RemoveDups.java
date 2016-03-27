@@ -2,6 +2,8 @@ package com.Algorithms.LinkedLists;
 
 import java.util.HashSet;
 
+import com.Utils.Node;
+
 /**
  * write code to remove duplicates from an unsorted linked list.
  * @author asus

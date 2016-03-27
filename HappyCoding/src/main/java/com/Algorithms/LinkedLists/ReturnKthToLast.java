@@ -1,5 +1,7 @@
 package com.Algorithms.LinkedLists;
 
+import com.Utils.Node;
+
 /**
  * Implement an algorithm to find the kth to last element of singly linked list.
  * @author liushiyao

@@ -8,9 +8,9 @@ import org.junit.Before;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.Algorithms.TreesAndGraphs.Graph;
 import com.Algorithms.TreesAndGraphs.RouteBetweenNodes;
 import com.Utils.Builder;
+import com.Utils.Graph;
 
 public class RouteBetweenNodesTest {
     @Autowired 

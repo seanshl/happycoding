@@ -1,4 +1,4 @@
-package com.Algorithms.LinkedLists;
+package com.Utils;
 
 import com.Exceptions.InvalidInputException;
 

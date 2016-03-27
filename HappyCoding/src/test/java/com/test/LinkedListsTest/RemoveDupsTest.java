@@ -6,8 +6,8 @@ import java.util.logging.Logger;
 
 import org.junit.Test;
 
-import com.Algorithms.LinkedLists.Node;
 import com.Algorithms.LinkedLists.RemoveDups;
+import com.Utils.Node;
 
 public class RemoveDupsTest {
 	private Node head1;

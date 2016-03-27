@@ -1,4 +1,6 @@
-package com.Algorithms.TreesAndGraphs;
+package com.Utils;
+
+import com.Algorithms.TreesAndGraphs.SimpleGraphNode;
 
 public class Graph {
 	public SimpleGraphNode[] nodes;

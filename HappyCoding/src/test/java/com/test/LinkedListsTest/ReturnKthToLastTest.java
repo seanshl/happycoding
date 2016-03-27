@@ -5,8 +5,8 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.Algorithms.LinkedLists.Node;
 import com.Algorithms.LinkedLists.ReturnKthToLast;
+import com.Utils.Node;
 
 public class ReturnKthToLastTest {
     

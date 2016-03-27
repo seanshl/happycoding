@@ -6,8 +6,8 @@ import static org.junit.Assert.assertNull;
 import org.junit.Test;
 
 import com.Algorithms.LinkedLists.DeleteMiddleNode;
-import com.Algorithms.LinkedLists.Node;
 import com.Exceptions.InvalidInputException;
+import com.Utils.Node;
 
 public class DeleteMiddleNodeTest {
     

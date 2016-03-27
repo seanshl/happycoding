@@ -1,4 +1,4 @@
-package com.Algorithms.TreesAndGraphs;
+package com.Utils;
 
 public class BinaryTreeNode {
     public int value;
