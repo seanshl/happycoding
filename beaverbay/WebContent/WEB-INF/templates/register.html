@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999.xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title layout:title-pattern="$CONTENT_TITLE">Register</title>
+	<object th:include="fragments/head :: head" th:remove="tag" />
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4">
+                <div class="login-panel panel panel-default">
+                    <div class="panel-heading">
+                        <h1 class="panel-title">Please enter information required</h1>
+                    </div>
+                    <div
+                        th:if="${failed != null}">
+                        <p class="alert alert-danger">
+                            <strong>Register Error !</strong><p th:text="${failed}"></p>
+                        </p>
+                    </div>
+                    <div class="panel-body">
+                        <form id="registerForm" name="f" role="form" th:action="@{/register}" method="post"
+                            th:object="${userBean}" class="login-form">
+                            <fieldset>
+                                <div id="username-div" class="form-group">
+                                    <label class="control-label" for="email">Email: </label> 
+                                    <input
+                                        id="email" name="email" class="form-control"
+                                        placeholder="Email..." type="text" autofocus="autofocus" th:field="*{email}" />
+                                     <div id="email-error"></div>
+                                </div>
+                                <div id="username-div" class="form-group">
+                                    <label class="control-label" for="firstName">Username: </label> 
+                                    <input
+                                        id="username" name="username" class="form-control"
+                                        placeholder="Username..." type="text" autofocus="autofocus" th:field="*{username}"></input>
+                                	<div id="username-error"></div>
+                                </div>
+                                <div id="password-div" class="form-group">
+                                    <label class="control-label" for="password">Password: </label> 
+                                    <input
+                                        id="password" name="password" class="form-control"
+                                        placeholder="Password..." type="password" value="" th:field="*{password}"></input>
+                                	<div id="password-error"></div>
+                                </div>
+                                 <div id="confirmPassword-div" class="form-group">
+                                    <label class="control-label" for="confirmPassword">Confrim Password: </label> 
+                                    <input
+                                        id="confirmPassword" name="confirmPassword" class="form-control"
+                                        placeholder="Confirm password..." type="password" value=""></input>
+                                    <div id="confirmPassword-error"></div>
+                                    <div id="matchpass"></div>    
+                                </div>
+                                <button type="submit" class="btn btn-lg btn-success btn-block">Sign
+                                    up !</button>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+	<div th:replace="fragments/footer :: footer" th:remove="tag"></div>
+	<script th:src="@{resources/js/editPerson.js}"></script>
+	<script>
+        jQuery(document).ready(function() {
+            $.backstretch("resources/img/backgrounds/login-background.jpg");
+        });
+
+    </script>
+</body>
+</html>

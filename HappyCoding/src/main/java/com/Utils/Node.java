@@ -15,6 +15,8 @@ public class Node {
 		this.data = d;
 	}
 	
+	public Node() {};
+	
 	public Node getNodeFromThis(int d) throws InvalidInputException {
 	    if (d < 0) {
 	       throw new InvalidInputException();

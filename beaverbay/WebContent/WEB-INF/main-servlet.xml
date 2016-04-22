@@ -9,19 +9,19 @@
 		http://www.springframework.org/schema/context 
 		http://www.springframework.org/schema/context/spring-context-4.2.xsd">
 
-	<import resource="classpath:com/beaverbay/config/hibernate.cfg.xml" />
-	<import resource="classpath:com/beaverbay/config/spring-beans.xml" />
-	<context:property-placeholder location="classpath:properties/default.properties" />
+<!-- Read the default.properties, then read local properties -->	
+	<bean id="inetAddress" class="java.net.InetAddress" factory-method="getLocalHost"></bean>
+	<context:property-placeholder location="classpath:com/beaverbay/properties/default.properties, 
+								            classpath:com/beaverbay/properties/#{inetAddress.hostName}_app.properties" />				
+	
+	
+	<context:component-scan base-package="com.beaverbay.controller">
+	</context:component-scan>
 
-	<mvc:resources location="/resources/" mapping="/recources/**"></mvc:resources>
+	
+	<mvc:resources location="/resources/" mapping="/resources/**"></mvc:resources>
 	<mvc:annotation-driven></mvc:annotation-driven>
 
 	<!-- Spring dispatcher will forward all requests to the default servlet. -->
 	<mvc:default-servlet-handler />
-
-	<bean id="viewResolver"
-		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<property name="prefix" value="classpath:templates/"></property>
-		<property name="order" value="2"></property>
-	</bean>
 </beans>

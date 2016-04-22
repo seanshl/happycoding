@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en"
+	  xmlns="http://www.w3.org/1999.xhtml"
+	  xmlns:th="http://www.thymeleaf.org">
+  <head>
+	<title layout:title-pattern="$CONTENT_TITLE">Welcome</title>
+  	<object th:include="fragments/head :: head" th:remove="tag" />
+  </head>
+  <body>
+
+    <div class="container-fluid">
+        <h1>Hello, world!</h1>
+        <h4 id="testing"></h4>
+    </div>
+
+	<div th:replace="fragments/footer ::footer"></div>
+  </body>
+</html>

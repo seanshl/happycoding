@@ -10,22 +10,24 @@
 						http://www.springframework.org/schema/context/spring-context-4.2.xsd
 						http://www.springframework.org/schema/tx 
 						http://www.springframework.org/schema/tx/spring-tx-4.2.xsd">
-						
-	<context:property-placeholder location="classpath:properties/default.properties" />
+	<bean id="inetAddress" class="java.net.InetAddress" factory-method="getLocalHost"></bean>
+	
+	<context:property-placeholder location="classpath:com/beaverbay/properties/default.properties, 
+								            classpath:com/beaverbay/properties/#{inetAddress.hostName}_app.properties" />					
 	
 	<bean id="sessionFactory"
 		class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
 		<property name="dataSource" ref="dataSource"></property>
 		<property name="hibernateProperties" ref="hibernateProps">
 		</property>
-		<property name="packagesToScan" value="com.agilissystems"></property>
+		<property name="packagesToScan" value="com.beaverbay"></property>
 	</bean>
 
 	<bean id="hibernateProps"
 		class="org.springframework.beans.factory.config.PropertiesFactoryBean">
 		<property name="properties">
 			<props>
-				<prop key="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</prop>
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
 				<prop key="hibernate.show_sql">${hibernate.show_sql}</prop>
 				<prop key="hibernate.format_sql">${hibernate.format_sql}</prop>
 				<prop key="hibernate.use_sql_comments">${hibernate.show_sql}</prop>
@@ -64,7 +66,7 @@
 		</property>
 		<property name="properties">
 			<props>
-				<prop key="user">${jdbc.userName}</prop>
+				<prop key="user">${jdbc.username}</prop>
 				<prop key="password">${jdbc.password}</prop>
 			</props>
 		</property>

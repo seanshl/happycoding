@@ -1,0 +1,13 @@
+User table.
+
+create table person (
+	person_id int not null auto_increment,
+	email text not null unique,
+	username text,
+	password varchar(20),
+	create_date datetime not null,
+	edit_date datetime not null default now(),
+	last_login datetime,
+	UNIQUE(person_id, user_name, email),
+	PRIMARY KEY (person_id)
+)

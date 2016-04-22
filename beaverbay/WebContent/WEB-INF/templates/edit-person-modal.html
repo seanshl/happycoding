@@ -1,0 +1,87 @@
+<div class="modal-header">
+	<button type="button" class="close" data-dismiss="modal"
+		aria-hidden="true">&times;</button>
+<!-- 		<div th:with="isAdd=${isAdd}" th:text="${isAdd}"></div>
+		<div th:with="isEdit=${isEdit}" th:remove="tag"></div> -->
+		<h4 th:if="${isAdd} == true" class="modal-title" id="myModalLabel">Add Person</h4>
+		<h4 th:if="${isEdit} == true" class="modal-title" id="myModalLabel">Edit Person</h4>	
+</div>
+<div class="modal-body">
+	<div id="register-modal" class="register-modal-panel panel panel-default">
+		<div class="panel-heading">
+			<h1 class="panel-title">Please enter information required</h1>
+		</div>
+		<div th:if="${failed != null}">
+			<p class="alert alert-danger">
+				<strong>Error !</strong>
+				<p th:text="${failed}"></p>
+			</p>
+		</div>
+		<div class="panel-body">
+			<form id="registerForm" name="f" role="form" th:action="${isAdd == true}?@{/register} : @{/editPerson}"
+				method="post" th:object="${personBean}" class="login-form">
+				<fieldset>
+					<!-- If it's editing person, a hidden person_id should be included in the form -->
+					<div th:if="${isEdit == true}" class="hidden" th:id="editPersonId" data-th-attr="data-person-id=${personId}"></div>
+					
+					<!-- The username check mechanism will try to use the {fieldname}-dev to find the dom -->
+					<div th:id="userName-div" class="form-group">
+						<input th:id="id" name="id" type="hidden" th:value="${personBean.getId()}" />
+						<label class="control-label" for="userName">Email: </label> 
+						<input
+							th:id="userName" name="userName" class="form-control"
+							placeholder="Email..." type="text" autofocus="autofocus"
+							th:value="${personBean.getUserName()}" />
+						<div th:id="userName-error"></div>
+					</div>
+					<div id="firstName-div" class="form-group">
+						<label class="control-label" for="firstName">First Name: </label>
+						<input id="firstName" name="firstName" class="form-control"
+							placeholder="First name..." type="text"
+							th:value="${personBean.getFirstName()}"></input>
+						<div id="firstName-error"></div>
+					</div>
+					<div id="lastName-div" class="form-group">
+						<label class="control-label" for="lastName">Last Name: </label> <input
+							id="lastName" name="lastName" class="form-control"
+							placeholder="Last name..." type="text" 
+							th:value="${personBean.getLastName()}"></input>
+						<div id="lastName-error"></div>
+					</div>
+					<div id="accountType-div" class="form-group">
+						<label class="control-label" for="accountType">Account Type: </label><select
+							id="accountType" name="accountType" class="form-control">
+							<option selected="selected" th:value="STD">Standard</option>
+							<option th:value="ADM">Administrator</option>
+						</select>
+					</div>
+					<div id="password-div" class="form-group" th:classappend="${isEdit}? hidden">
+						<label class="control-label" for="password">Password: </label> 
+						<input
+							id="password" name="password" class="form-control"
+							placeholder="Password..." type="password"
+							th:value="${personBean.getPassword()}">
+						</input>
+						<div id="password-error"></div>
+					</div>
+					<div id="confirmPassword-div" class="form-group" th:classappend="${isEdit}? hidden">
+						<label class="control-label" for="confirmPassword">Confirm Password: </label> 
+						<input 
+							id="confirmPassword" name="confirmPassword" class="form-control" 
+							placeholder="Confirm password..." type="password" 
+							th:value="${personBean.getPassword()}">
+						</input>
+						<div id="confirmPassword-error"></div>
+						<div id="matchpass"></div>
+					</div>
+					<div th:if="${isEdit} == true" class="checkbox">
+							<label><input id="changePassword" type="checkbox" />Change Password</label>
+						</div>
+					<button type="submit" class="btn btn-lg btn-success btn-block">Save
+						Person</button>
+				</fieldset>
+			</form>
+		</div>
+	</div>
+</div>
+<script th:src="@{resources/js/editPerson.js}"></script>

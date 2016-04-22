@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999.xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title layout:title-pattern="$CONTENT_TITLE">Home</title>
+	<object th:include="fragments/head :: head" th:remove="tag" />
+</head>
+<body>
+	<div id="wrapper">
+		<div class="container-fluid">
+			<nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+				<div th:replace="fragments/header :: header" th:remove="tag"></div>
+				<div th:replace="fragments/sidenav :: sidenav" th:remove="tag"></div>
+			</nav>
+		</div>
+	</div>
+	<div th:replace="fragments/footer :: footer" th:remove="tag"></div>
+</body>
+</html>
