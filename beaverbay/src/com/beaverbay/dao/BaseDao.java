@@ -34,5 +34,9 @@ public class BaseDao {
         getSession().delete(object);
     }
     
+    public void flushAndClear() {
+        
+    }
+    
     
 }
