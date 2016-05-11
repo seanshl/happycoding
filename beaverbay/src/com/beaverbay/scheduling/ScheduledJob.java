@@ -10,7 +10,7 @@ public class ScheduledJob extends QuartzJobBean {
 
     @Override
     protected void executeInternal(JobExecutionContext context) throws JobExecutionException {
-        System.out.println("Come on let's rock" + new Date());
+        System.out.println("Come on let's rock "  + new Date());
         
     }
 

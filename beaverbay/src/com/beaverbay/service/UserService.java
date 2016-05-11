@@ -1,5 +1,7 @@
 package com.beaverbay.service;
 
+import java.util.Date;
+
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCrypt;
@@ -10,7 +12,6 @@ import com.beaverbay.bean.UserBean;
 import com.beaverbay.builder.ModelBuilder;
 import com.beaverbay.dao.UserDao;
 import com.beaverbay.model.User;
-import com.beaverbay.utility.DBException;
 import com.beaverbay.utility.UserException;
 
 @Service
@@ -39,6 +40,8 @@ public class UserService {
         
         try {
             userDao.save(user);
+            
+            logger.info("User created at: " + new Date() + "\n User Details" + user.toString() );
         } catch (Exception e) {
             String message = "There's an error creating user: \n" + bean.toString();
             logger.error(message, e);

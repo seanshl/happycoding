@@ -15,6 +15,11 @@ import com.beaverbay.bean.UserBean;
 import com.beaverbay.service.UserService;
 import com.beaverbay.utility.UserException;
 
+/**
+ * MainController is responsible for most of page request. 
+ * @author liushiyao
+ *
+ */
 @Controller
 public class MainController {
     @Autowired
@@ -35,29 +40,5 @@ public class MainController {
         return "login";
     }
     
-    @RequestMapping(value="/register", method=RequestMethod.GET)
-    public String registerPerson(Model model) {
-        model.addAttribute("userBean", new UserBean());
-        
-        return "register";
-    }
-    
-    @RequestMapping(value="register", method = RequestMethod.POST)
-    public String registerUser(@ModelAttribute UserBean userBean, Model model) {
-        if (userService.getUserByEmail(userBean.getEmail()) != null) {
-            model.addAttribute("failed", "User already existed.");
-            
-            return "register";
-        }
-        
-        try {
-            userService.createUser(userBean);
-        } catch (UserException e) {
-            model.addAttribute("failed", e.getMessage());
-            
-            return "register";          
-        }
-        
-        return "redirect:home";
-    }
+   
 }
