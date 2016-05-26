@@ -29,6 +29,17 @@ public class Node {
 	    return it;
 	}
 	
+	public int length() {
+	    int length = 0;
+	    Node node = this;
+	    while(node != null) {
+	        length++;
+	        node = node.next;
+	    }
+	    
+	    return length;
+	}
+	
 	public void appendToTail(int d) {
 		Node end = new Node(d);
 		Node n= this;
