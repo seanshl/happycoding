@@ -5,6 +5,7 @@ public class BinaryTreeNode<Key, Value> {
     public Value value;
     public BinaryTreeNode left;
     public BinaryTreeNode right;
+    public BinaryTreeNode parent;
     
     public BinaryTreeNode(Key key, Value value) {
         this.key = key;
