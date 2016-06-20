@@ -1,7 +1,7 @@
 package com.Algorithms.TreesAndGraphs;
 
 public class BST <Key extends Comparable, Value>{
-    private BinaryTreeNode root;
+    public BinaryTreeNode root;
     
     public void put(Key key, Value val) {
         this.root = putHelper(this.root, key, val);
